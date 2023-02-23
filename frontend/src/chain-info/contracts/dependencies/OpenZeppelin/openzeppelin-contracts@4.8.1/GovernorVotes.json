@@ -1,0 +1,1577 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "Empty",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProposalCanceled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "targets",
+          "type": "address[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "values",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "string[]",
+          "name": "signatures",
+          "type": "string[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes[]",
+          "name": "calldatas",
+          "type": "bytes[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "startBlock",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "endBlock",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        }
+      ],
+      "name": "ProposalCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProposalExecuted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "weight",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "VoteCast",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "weight",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
+        }
+      ],
+      "name": "VoteCastWithParams",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "BALLOT_TYPEHASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "COUNTING_MODE",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "EXTENDED_BALLOT_TYPEHASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        }
+      ],
+      "name": "castVote",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "castVoteBySig",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "castVoteWithReason",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
+        }
+      ],
+      "name": "castVoteWithReasonAndParams",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "support",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "castVoteWithReasonAndParamsBySig",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "targets",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "values",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "calldatas",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "descriptionHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "execute",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "getVotes",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
+        }
+      ],
+      "name": "getVotesWithParams",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "hasVoted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "targets",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "values",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "calldatas",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "descriptionHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "hashProposal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC1155BatchReceived",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC1155Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC721Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "proposalDeadline",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "proposalSnapshot",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "proposalThreshold",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "targets",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "values",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "calldatas",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        }
+      ],
+      "name": "propose",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "quorum",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "relay",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "proposalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "state",
+      "outputs": [
+        {
+          "internalType": "enum IGovernor.ProposalState",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IVotes",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "votingDelay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "votingPeriod",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "allSourcePaths": {
+    "11": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/utils/IVotes.sol",
+    "12": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/token/ERC1155/IERC1155Receiver.sol",
+    "19": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/token/ERC721/IERC721Receiver.sol",
+    "2": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/Governor.sol",
+    "22": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/utils/Context.sol",
+    "27": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/utils/cryptography/EIP712.sol",
+    "28": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/utils/introspection/ERC165.sol",
+    "29": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/utils/introspection/IERC165.sol",
+    "3": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/IGovernor.sol",
+    "8": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/extensions/GovernorVotes.sol"
+  },
+  "ast": {
+    "absolutePath": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/extensions/GovernorVotes.sol",
+    "exportedSymbols": {
+      "Address": [
+        4185
+      ],
+      "Context": [
+        4207
+      ],
+      "DoubleEndedQueue": [
+        6842
+      ],
+      "ECDSA": [
+        4782
+      ],
+      "EIP712": [
+        4936
+      ],
+      "ERC165": [
+        4960
+      ],
+      "Governor": [
+        1775
+      ],
+      "GovernorVotes": [
+        2598
+      ],
+      "IERC1155Receiver": [
+        3837
+      ],
+      "IERC165": [
+        10295
+      ],
+      "IERC721Receiver": [
+        3855
+      ],
+      "IGovernor": [
+        3796
+      ],
+      "IVotes": [
+        7875
+      ],
+      "Math": [
+        10283
+      ],
+      "SafeCast": [
+        6501
+      ],
+      "Strings": [
+        10470
+      ],
+      "Timers": [
+        4421
+      ]
+    },
+    "id": 2599,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2558,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "123:23:8"
+      },
+      {
+        "absolutePath": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/Governor.sol",
+        "file": "../Governor.sol",
+        "id": 2559,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2599,
+        "sourceUnit": 1776,
+        "src": "148:25:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/utils/IVotes.sol",
+        "file": "../utils/IVotes.sol",
+        "id": 2560,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2599,
+        "sourceUnit": 7876,
+        "src": "174:29:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2562,
+              "name": "Governor",
+              "nameLocations": [
+                "405:8:8"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 1775,
+              "src": "405:8:8"
+            },
+            "id": 2563,
+            "nodeType": "InheritanceSpecifier",
+            "src": "405:8:8"
+          }
+        ],
+        "canonicalName": "GovernorVotes",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 2561,
+          "nodeType": "StructuredDocumentation",
+          "src": "205:164:8",
+          "text": " @dev Extension of {Governor} for voting weight extraction from an {ERC20Votes} token, or since v4.5 an {ERC721Votes} token.\n _Available since v4.3._"
+        },
+        "fullyImplemented": false,
+        "id": 2598,
+        "linearizedBaseContracts": [
+          2598,
+          1775,
+          3837,
+          3855,
+          3796,
+          4936,
+          4960,
+          10295,
+          4207
+        ],
+        "name": "GovernorVotes",
+        "nameLocation": "388:13:8",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "fc0c546a",
+            "id": 2566,
+            "mutability": "immutable",
+            "name": "token",
+            "nameLocation": "444:5:8",
+            "nodeType": "VariableDeclaration",
+            "scope": 2598,
+            "src": "420:29:8",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IVotes_$7875",
+              "typeString": "contract IVotes"
+            },
+            "typeName": {
+              "id": 2565,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 2564,
+                "name": "IVotes",
+                "nameLocations": [
+                  "420:6:8"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 7875,
+                "src": "420:6:8"
+              },
+              "referencedDeclaration": 7875,
+              "src": "420:6:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IVotes_$7875",
+                "typeString": "contract IVotes"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2576,
+              "nodeType": "Block",
+              "src": "489:37:8",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2574,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 2572,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2566,
+                      "src": "499:5:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IVotes_$7875",
+                        "typeString": "contract IVotes"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 2573,
+                      "name": "tokenAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2569,
+                      "src": "507:12:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IVotes_$7875",
+                        "typeString": "contract IVotes"
+                      }
+                    },
+                    "src": "499:20:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IVotes_$7875",
+                      "typeString": "contract IVotes"
+                    }
+                  },
+                  "id": 2575,
+                  "nodeType": "ExpressionStatement",
+                  "src": "499:20:8"
+                }
+              ]
+            },
+            "id": 2577,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2570,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2569,
+                  "mutability": "mutable",
+                  "name": "tokenAddress",
+                  "nameLocation": "475:12:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2577,
+                  "src": "468:19:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IVotes_$7875",
+                    "typeString": "contract IVotes"
+                  },
+                  "typeName": {
+                    "id": 2568,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2567,
+                      "name": "IVotes",
+                      "nameLocations": [
+                        "468:6:8"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 7875,
+                      "src": "468:6:8"
+                    },
+                    "referencedDeclaration": 7875,
+                    "src": "468:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IVotes_$7875",
+                      "typeString": "contract IVotes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "467:21:8"
+            },
+            "returnParameters": {
+              "id": 2571,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "489:0:8"
+            },
+            "scope": 2598,
+            "src": "456:70:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              864
+            ],
+            "body": {
+              "id": 2596,
+              "nodeType": "Block",
+              "src": "812:64:8",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 2592,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2580,
+                        "src": "848:7:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2593,
+                        "name": "blockNumber",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2582,
+                        "src": "857:11:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 2590,
+                        "name": "token",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2566,
+                        "src": "829:5:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IVotes_$7875",
+                          "typeString": "contract IVotes"
+                        }
+                      },
+                      "id": 2591,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "835:12:8",
+                      "memberName": "getPastVotes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7836,
+                      "src": "829:18:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_address_$_t_uint256_$returns$_t_uint256_$",
+                        "typeString": "function (address,uint256) view external returns (uint256)"
+                      }
+                    },
+                    "id": 2594,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "829:40:8",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2589,
+                  "id": 2595,
+                  "nodeType": "Return",
+                  "src": "822:47:8"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 2578,
+              "nodeType": "StructuredDocumentation",
+              "src": "532:114:8",
+              "text": " Read the voting weight from the token's built in snapshot mechanism (see {Governor-_getVotes})."
+            },
+            "id": 2597,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_getVotes",
+            "nameLocation": "660:9:8",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 2586,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "785:8:8"
+            },
+            "parameters": {
+              "id": 2585,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2580,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "687:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2597,
+                  "src": "679:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2579,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "679:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2582,
+                  "mutability": "mutable",
+                  "name": "blockNumber",
+                  "nameLocation": "712:11:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2597,
+                  "src": "704:19:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2581,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "704:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2584,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2597,
+                  "src": "733:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2583,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "733:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "669:93:8"
+            },
+            "returnParameters": {
+              "id": 2589,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2588,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2597,
+                  "src": "803:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2587,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "803:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "802:9:8"
+            },
+            "scope": 2598,
+            "src": "651:225:8",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2599,
+        "src": "370:508:8",
+        "usedErrors": [
+          6508
+        ]
+      }
+    ],
+    "src": "123:756:8"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.17+commit.8df45f5f"
+  },
+  "contractName": "GovernorVotes",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/Context",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/EIP712",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/ERC165",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/Governor",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/IERC1155Receiver",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/IERC165",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/IERC721Receiver",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/IGovernor",
+    "OpenZeppelin/openzeppelin-contracts@4.8.1/IVotes"
+  ],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "details": "Extension of {Governor} for voting weight extraction from an {ERC20Votes} token, or since v4.5 an {ERC721Votes} token. _Available since v4.3._",
+    "errors": {
+      "Empty()": [
+        {
+          "details": "An operation (e.g. {front}) couldn't be completed due to the queue being empty."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "COUNTING_MODE()": {
+        "details": "A description of the possible `support` values for {castVote} and the way these votes are counted, meant to be consumed by UIs to show correct vote options and interpret the results. The string is a URL-encoded sequence of key-value pairs that each describe one aspect, for example `support=bravo&quorum=for,abstain`. There are 2 standard keys: `support` and `quorum`. - `support=bravo` refers to the vote options 0 = Against, 1 = For, 2 = Abstain, as in `GovernorBravo`. - `quorum=bravo` means that only For votes are counted towards quorum. - `quorum=for,abstain` means that both For and Abstain votes are counted towards quorum. If a counting module makes use of encoded `params`, it should  include this under a `params` key with a unique name that describes the behavior. For example: - `params=fractional` might refer to a scheme where votes are divided fractionally between for/against/abstain. - `params=erc721` might refer to a scheme where specific NFTs are delegated to vote. NOTE: The string can be decoded by the standard https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams[`URLSearchParams`] JavaScript class.",
+        "notice": "module:voting"
+      },
+      "castVote(uint256,uint8)": {
+        "details": "See {IGovernor-castVote}."
+      },
+      "castVoteBySig(uint256,uint8,uint8,bytes32,bytes32)": {
+        "details": "See {IGovernor-castVoteBySig}."
+      },
+      "castVoteWithReason(uint256,uint8,string)": {
+        "details": "See {IGovernor-castVoteWithReason}."
+      },
+      "castVoteWithReasonAndParams(uint256,uint8,string,bytes)": {
+        "details": "See {IGovernor-castVoteWithReasonAndParams}."
+      },
+      "castVoteWithReasonAndParamsBySig(uint256,uint8,string,bytes,uint8,bytes32,bytes32)": {
+        "details": "See {IGovernor-castVoteWithReasonAndParamsBySig}."
+      },
+      "execute(address[],uint256[],bytes[],bytes32)": {
+        "details": "See {IGovernor-execute}."
+      },
+      "getVotes(address,uint256)": {
+        "details": "See {IGovernor-getVotes}."
+      },
+      "getVotesWithParams(address,uint256,bytes)": {
+        "details": "See {IGovernor-getVotesWithParams}."
+      },
+      "hasVoted(uint256,address)": {
+        "details": "Returns whether `account` has cast a vote on `proposalId`.",
+        "notice": "module:voting"
+      },
+      "hashProposal(address[],uint256[],bytes[],bytes32)": {
+        "details": "See {IGovernor-hashProposal}. The proposal id is produced by hashing the ABI encoded `targets` array, the `values` array, the `calldatas` array and the descriptionHash (bytes32 which itself is the keccak256 hash of the description string). This proposal id can be produced from the proposal data which is part of the {ProposalCreated} event. It can even be computed in advance, before the proposal is submitted. Note that the chainId and the governor address are not part of the proposal id computation. Consequently, the same proposal (with same operation and same description) will have the same id if submitted on multiple governors across multiple networks. This also means that in order to execute the same operation twice (on the same governor) the proposer will have to change the description in order to avoid proposal id conflicts."
+      },
+      "name()": {
+        "details": "See {IGovernor-name}."
+      },
+      "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": {
+        "details": "See {IERC1155Receiver-onERC1155BatchReceived}."
+      },
+      "onERC1155Received(address,address,uint256,uint256,bytes)": {
+        "details": "See {IERC1155Receiver-onERC1155Received}."
+      },
+      "onERC721Received(address,address,uint256,bytes)": {
+        "details": "See {IERC721Receiver-onERC721Received}."
+      },
+      "proposalDeadline(uint256)": {
+        "details": "See {IGovernor-proposalDeadline}."
+      },
+      "proposalSnapshot(uint256)": {
+        "details": "See {IGovernor-proposalSnapshot}."
+      },
+      "proposalThreshold()": {
+        "details": "Part of the Governor Bravo's interface: _\"The number of votes required in order for a voter to become a proposer\"_."
+      },
+      "propose(address[],uint256[],bytes[],string)": {
+        "details": "See {IGovernor-propose}."
+      },
+      "quorum(uint256)": {
+        "details": "Minimum number of cast voted required for a proposal to be successful. Note: The `blockNumber` parameter corresponds to the snapshot used for counting vote. This allows to scale the quorum depending on values such as the totalSupply of a token at this block (see {ERC20Votes}).",
+        "notice": "module:user-config"
+      },
+      "relay(address,uint256,bytes)": {
+        "details": "Relays a transaction or function call to an arbitrary target. In cases where the governance executor is some contract other than the governor itself, like when using a timelock, this function can be invoked in a governance proposal to recover tokens or Ether that was sent to the governor contract by mistake. Note that if the executor is simply the governor itself, use of `relay` is redundant."
+      },
+      "state(uint256)": {
+        "details": "See {IGovernor-state}."
+      },
+      "supportsInterface(bytes4)": {
+        "details": "See {IERC165-supportsInterface}."
+      },
+      "version()": {
+        "details": "See {IGovernor-version}."
+      },
+      "votingDelay()": {
+        "details": "Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts.",
+        "notice": "module:user-config"
+      },
+      "votingPeriod()": {
+        "details": "Delay, in number of blocks, between the vote start and vote ends. NOTE: The {votingDelay} can delay the start of the vote. This must be considered when setting the voting duration compared to the voting delay.",
+        "notice": "module:user-config"
+      }
+    },
+    "version": 1
+  },
+  "offset": [
+    370,
+    878
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "5ba229718ce3cdd5b0a687b8fa93cc6baf993e3e",
+  "source": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v4.6.0) (governance/extensions/GovernorVotes.sol)\n\npragma solidity ^0.8.0;\n\nimport \"../Governor.sol\";\nimport \"../utils/IVotes.sol\";\n\n/**\n * @dev Extension of {Governor} for voting weight extraction from an {ERC20Votes} token, or since v4.5 an {ERC721Votes} token.\n *\n * _Available since v4.3._\n */\nabstract contract GovernorVotes is Governor {\n    IVotes public immutable token;\n\n    constructor(IVotes tokenAddress) {\n        token = tokenAddress;\n    }\n\n    /**\n     * Read the voting weight from the token's built in snapshot mechanism (see {Governor-_getVotes}).\n     */\n    function _getVotes(\n        address account,\n        uint256 blockNumber,\n        bytes memory /*params*/\n    ) internal view virtual override returns (uint256) {\n        return token.getPastVotes(account, blockNumber);\n    }\n}\n",
+  "sourceMap": "",
+  "sourcePath": "/Users/cromewar/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.8.1/contracts/governance/extensions/GovernorVotes.sol",
+  "type": "contract"
+}
